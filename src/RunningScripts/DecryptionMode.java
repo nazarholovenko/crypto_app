@@ -36,7 +36,6 @@ public class DecryptionMode implements RunningMode {
         fileReadingLogic.writeFile(inputFilePath, decryptedText);
         System.out.println(DECRYPTION_SUCCEED + inputFilePath);
     }
-
     protected CryptoKey selectCryptoKey() {
         Scanner scanner = new Scanner(System.in);
 
@@ -59,6 +58,5 @@ public class DecryptionMode implements RunningMode {
                 return new MoveAtOneLetter();
             }
         }
-
     }
 }
