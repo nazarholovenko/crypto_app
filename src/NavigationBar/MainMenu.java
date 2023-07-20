@@ -1,6 +1,5 @@
 package NavigationBar;
 
-
 import RunningScripts.DecryptionMode;
 import RunningScripts.EncryptionMode;
 import java.util.Scanner;
@@ -17,7 +16,7 @@ public class MainMenu {
         System.out.println("3. Дешифрування методом Brute Force");
         System.out.println("0. Вихід");
     }
-
+    
     public void chooseMode() {
         Scanner scanner = new Scanner(System.in);
         int choice;
