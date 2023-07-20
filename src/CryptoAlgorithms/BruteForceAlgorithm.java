@@ -1,9 +1,11 @@
+
 package CryptoAlgorithms;
 
 import CryptoKeys.CryptoKey;
 import CryptoKeys.MoveAtOneLetter;
 import CryptoKeys.MoveAtThreeLetters;
 import CryptoKeys.MoveAtTwoLetters;
+
 public class BruteForceAlgorithm {
     private final String ORIGINAL_ENCRYPTED_TEXT;
     private String decryptedText;
@@ -59,6 +61,3 @@ public class BruteForceAlgorithm {
         this.decryptedText = decryptedText;
     }
 }
-
-
-
