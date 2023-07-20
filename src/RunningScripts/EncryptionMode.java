@@ -6,8 +6,6 @@ import CryptoKeys.MoveAtOneLetter;
 import CryptoKeys.MoveAtThreeLetters;
 import CryptoKeys.MoveAtTwoLetters;
 import NavigationBar.RunningMode;
-
-
 import java.util.Scanner;
 
 public class EncryptionMode implements RunningMode {
