@@ -1,5 +1,3 @@
-
-
 import CryptoAlgorithms.BruteForceAlgorithm;
 import NavigationBar.RunningMode;
 import java.util.Scanner;
@@ -25,5 +23,3 @@ public class BruteForceMode implements RunningMode {
         System.out.println(CONTENT_CHANGED + inputFilePath);
     }
 }
-
-
