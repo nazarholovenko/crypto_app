@@ -1,4 +1,4 @@
-package RunningScripts;
+
 
 import CryptoAlgorithms.BruteForceAlgorithm;
 import NavigationBar.RunningMode;
@@ -25,3 +25,5 @@ public class BruteForceMode implements RunningMode {
         System.out.println(CONTENT_CHANGED + inputFilePath);
     }
 }
+
+
