@@ -15,7 +15,6 @@ public class FileReadingLogic {
         }
         return content.toString();
     }
-
     public void writeFile(String filePath, String content) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write(content);

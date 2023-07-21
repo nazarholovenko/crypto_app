@@ -1,7 +1,7 @@
 package CryptoKeys;
 
 public class MoveAtTwoLetters extends CryptoKey {
-    public MoveAtTwoLetters(){
+    public MoveAtTwoLetters() {
         super(2);
     }
 }

@@ -6,7 +6,6 @@ public class CryptoKey {
     public CryptoKey(int key) {
         this.key = key;
     }
-
     public int getKey() {
         return key;
     }
