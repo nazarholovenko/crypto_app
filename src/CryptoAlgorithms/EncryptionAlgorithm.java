@@ -19,29 +19,7 @@ public class EncryptionAlgorithm {
                     'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ь',
                     'Ю', 'Я' };
 
-    public String encrypt(String text, CryptoKey key) {
-        StringBuilder result = new StringBuilder();
-        int moveBy = key.getKey();
-        for (char c : text.toCharArray()) {
-            char encryptedChar = encryptCharacter(c, moveBy);
-            result.append(encryptedChar);
-        }
-        return result.toString();
-    }
 
-    private char encryptCharacter(char character, int moveBy) {
-        char[] alphabet;
-        if (Character.isLowerCase(character)) {
-            alphabet = UKRAINIAN_ALPHABET_LOWER_CASE;
-        } else if (Character.isUpperCase(character)) {
-            alphabet = UKRAINIAN_ALPHABET_UPPER_CASE;
-        } else {
-            return character;
-        }
-        int index = getIndex(character, alphabet);
-        int shiftedIndex = (index + moveBy) % alphabet.length;
-        return alphabet[shiftedIndex];
-    }
 
     private int getIndex(char character, char[] alphabet) {
         for (int i = 0; i < alphabet.length; i++) {
