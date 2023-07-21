@@ -5,19 +5,19 @@ import CryptoKeys.CryptoKey;
 public class EncryptionAlgorithm {
     public static final char[] UKRAINIAN_ALPHABET_LOWER_CASE =
             {'a', 'б', 'в',
-                    'г', 'ґ' , 'д', 'е', 'є', 'ж', 'з',
+                    'г', 'ґ', 'д', 'е', 'є', 'ж', 'з',
                     'и', 'і', 'ї', 'й', 'к', 'л', 'м',
                     'н', 'о', 'п', 'р', 'с', 'т', 'у',
                     'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ь',
-                    'ю', 'я' };
+                    'ю', 'я'};
 
     public static final char[] UKRAINIAN_ALPHABET_UPPER_CASE =
             {'А', 'Б', 'В',
-                    'Г', 'Ґ' , 'Д', 'Е', 'Є', 'Ж', 'З',
+                    'Г', 'Ґ', 'Д', 'Е', 'Є', 'Ж', 'З',
                     'И', 'І', 'Ї', 'Й', 'К', 'Л', 'М',
                     'Н', 'О', 'П', 'Р', 'С', 'Т', 'У',
                     'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ь',
-                    'Ю', 'Я' };
+                    'Ю', 'Я'};
 
     public String encrypt(String text, CryptoKey key) {
         StringBuilder result = new StringBuilder();
@@ -28,7 +28,6 @@ public class EncryptionAlgorithm {
         }
         return result.toString();
     }
-
 
     private char encryptCharacter(char character, int moveBy) {
         char[] alphabet;
@@ -43,7 +42,6 @@ public class EncryptionAlgorithm {
         int shiftedIndex = (index + moveBy) % alphabet.length;
         return alphabet[shiftedIndex];
     }
-
 
 
     private int getIndex(char character, char[] alphabet) {
