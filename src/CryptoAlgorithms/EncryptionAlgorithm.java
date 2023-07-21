@@ -20,6 +20,21 @@ public class EncryptionAlgorithm {
                     'Ю', 'Я' };
 
 
+    private char encryptCharacter(char character, int moveBy) {
+        char[] alphabet;
+        if (Character.isLowerCase(character)) {
+            alphabet = UKRAINIAN_ALPHABET_LOWER_CASE;
+        } else if (Character.isUpperCase(character)) {
+            alphabet = UKRAINIAN_ALPHABET_UPPER_CASE;
+        } else {
+            return character;
+        }
+        int index = getIndex(character, alphabet);
+        int shiftedIndex = (index + moveBy) % alphabet.length;
+        return alphabet[shiftedIndex];
+    }
+
+
 
     private int getIndex(char character, char[] alphabet) {
         for (int i = 0; i < alphabet.length; i++) {
