@@ -36,6 +36,5 @@ public class DecryptionAlgorithm {
             }
         }
         return -1;
-
     }
 }
