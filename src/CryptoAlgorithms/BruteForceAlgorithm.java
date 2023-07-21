@@ -7,11 +7,11 @@ import CryptoKeys.MoveAtThreeLetters;
 import CryptoKeys.MoveAtTwoLetters;
 
 public class BruteForceAlgorithm {
-    private String originalEncryptedText;
+    private final String ORIGINAL_ENCRYPTED_TEXT;
     private String decryptedText;
     private CryptoKey correctKey;
     public BruteForceAlgorithm(String originalEncryptedText) {
-        this.originalEncryptedText = originalEncryptedText;
+        this.ORIGINAL_ENCRYPTED_TEXT = originalEncryptedText;
         this.decryptedText = "";
         this.correctKey = null;
     }
@@ -20,8 +20,8 @@ public class BruteForceAlgorithm {
         int maxMatches = 0;
 
         for (CryptoKey key : keys) {
-            String decryptedText = decrypt(originalEncryptedText, key);
-            int matches = countMatchesWithSpaces(decryptedText, originalEncryptedText);
+            String decryptedText = decrypt(ORIGINAL_ENCRYPTED_TEXT, key);
+            int matches = countMatchesWithSpaces(decryptedText, ORIGINAL_ENCRYPTED_TEXT);
 
             if (matches > maxMatches) {
                 this.decryptedText = decryptedText;
@@ -47,6 +47,13 @@ public class BruteForceAlgorithm {
         }
 
         return matches;
+    }
+    public String getDecryptedText() {
+        return decryptedText;
+    }
+
+    public void setDecryptedText(String decryptedText) {
+        this.decryptedText = decryptedText;
     }
 }
 
