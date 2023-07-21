@@ -19,6 +19,16 @@ public class EncryptionAlgorithm {
                     'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ь',
                     'Ю', 'Я' };
 
+    public String encrypt(String text, CryptoKey key) {
+        StringBuilder result = new StringBuilder();
+        int moveBy = key.getKey();
+        for (char c : text.toCharArray()) {
+            char encryptedChar = encryptCharacter(c, moveBy);
+            result.append(encryptedChar);
+        }
+        return result.toString();
+    }
+
 
     private char encryptCharacter(char character, int moveBy) {
         char[] alphabet;
