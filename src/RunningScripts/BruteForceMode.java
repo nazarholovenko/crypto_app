@@ -2,7 +2,6 @@ package RunningScripts;
 
 import CryptoAlgorithms.BruteForceAlgorithm;
 import NavigationBar.RunningMode;
-
 import java.util.Scanner;
 
 public class BruteForceMode implements RunningMode {
