@@ -1,6 +1,5 @@
 package CryptoAlgorithms;
 
-
 import CryptoKeys.CryptoKey;
 import CryptoKeys.MoveAtOneLetter;
 import CryptoKeys.MoveAtThreeLetters;
@@ -10,11 +9,13 @@ public class BruteForceAlgorithm {
     private final String ORIGINAL_ENCRYPTED_TEXT;
     private String decryptedText;
     private CryptoKey correctKey;
+
     public BruteForceAlgorithm(String originalEncryptedText) {
         this.ORIGINAL_ENCRYPTED_TEXT = originalEncryptedText;
         this.decryptedText = "";
         this.correctKey = null;
     }
+
     public void bruteForceDecrypt() {
         CryptoKey[] keys = {new MoveAtOneLetter(), new MoveAtTwoLetters(), new MoveAtThreeLetters()};
         int maxMatches = 0;
@@ -30,10 +31,12 @@ public class BruteForceAlgorithm {
             }
         }
     }
+
     private String decrypt(String encryptedText, CryptoKey key) {
         DecryptionAlgorithm decryptionAlgorithm = new DecryptionAlgorithm();
         return decryptionAlgorithm.decrypt(encryptedText, key);
     }
+
     private int countMatchesWithSpaces(String decryptedText, String encryptedText) {
         int matches = 0;
         int length = Math.min(decryptedText.length(), encryptedText.length());
@@ -48,6 +51,7 @@ public class BruteForceAlgorithm {
 
         return matches;
     }
+
     public String getDecryptedText() {
         return decryptedText;
     }
