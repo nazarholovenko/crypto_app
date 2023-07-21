@@ -10,6 +10,11 @@ public class BruteForceAlgorithm {
     private String originalEncryptedText;
     private String decryptedText;
     private CryptoKey correctKey;
+    public BruteForceAlgorithm(String originalEncryptedText) {
+        this.originalEncryptedText = originalEncryptedText;
+        this.decryptedText = "";
+        this.correctKey = null;
+    }
     public void bruteForceDecrypt() {
         CryptoKey[] keys = {new MoveAtOneLetter(), new MoveAtTwoLetters(), new MoveAtThreeLetters()};
         int maxMatches = 0;
