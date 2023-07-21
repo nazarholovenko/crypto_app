@@ -7,6 +7,9 @@ import CryptoKeys.MoveAtThreeLetters;
 import CryptoKeys.MoveAtTwoLetters;
 
 public class BruteForceAlgorithm {
+    private String originalEncryptedText;
+    private String decryptedText;
+    private CryptoKey correctKey;
     public void bruteForceDecrypt() {
         CryptoKey[] keys = {new MoveAtOneLetter(), new MoveAtTwoLetters(), new MoveAtThreeLetters()};
         int maxMatches = 0;
