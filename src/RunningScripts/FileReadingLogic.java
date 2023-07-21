@@ -1,8 +1,6 @@
 package RunningScripts;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class FileReadingLogic {
     public String readFile(String filePath) {
@@ -16,5 +14,13 @@ public class FileReadingLogic {
             System.out.println("Помилка при зчитуванні файлу: " + e.getMessage());
         }
         return content.toString();
+    }
+
+    public void writeFile(String filePath, String content) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            writer.write(content);
+        } catch (IOException e) {
+            System.out.println("Помилка при записі файлу: " + e.getMessage());
+        }
     }
 }
