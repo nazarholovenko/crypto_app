@@ -3,6 +3,18 @@ package CryptoAlgorithms;
 import CryptoKeys.CryptoKey;
 
 public class DecryptionAlgorithm {
+
+    public String decrypt(String text, CryptoKey key) {
+        StringBuilder result = new StringBuilder();
+        int moveBy = key.getKey();
+
+        for (char c : text.toCharArray()) {
+            char decryptedChar = decryptCharacter(c, moveBy);
+            result.append(decryptedChar);
+        }
+        return result.toString();
+    }
+
     private char decryptCharacter(char character, int moveBy) {
         char[] alphabet;
         if (Character.isLowerCase(character)) {
