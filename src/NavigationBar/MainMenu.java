@@ -1,13 +1,13 @@
 package NavigationBar;
 
-
 import RunningScripts.DecryptionMode;
 import RunningScripts.EncryptionMode;
+import RunningScripts.BruteForceMode;
 import java.util.Scanner;
 
 public class MainMenu {
     private static final String GOODBYE_MESSAGE = "До побачення!";
-    private static final String WRONG_CHOICE_TRIGGER = "Неправильний вибір. Спробуйте ще раз.";
+    private static final String WRONG_CHOICE_TRIGGER = "Неправильний вибір. Спробуйте ще раз. ";
 
     private void displayMenuText() {
         System.out.println("===== ГОЛОВНЕ МЕНЮ =====");
@@ -17,7 +17,7 @@ public class MainMenu {
         System.out.println("3. Дешифрування методом Brute Force");
         System.out.println("0. Вихід");
     }
-
+    
     public void chooseMode() {
         Scanner scanner = new Scanner(System.in);
         int choice;

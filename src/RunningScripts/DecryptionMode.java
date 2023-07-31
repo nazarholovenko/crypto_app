@@ -1,46 +1,48 @@
 package RunningScripts;
 
-import CryptoAlgorithms.EncryptionAlgorithm;
+import CryptoAlgorithms.DecryptionAlgorithm;
 import CryptoKeys.CryptoKey;
 import CryptoKeys.MoveAtOneLetter;
 import CryptoKeys.MoveAtThreeLetters;
 import CryptoKeys.MoveAtTwoLetters;
 import NavigationBar.RunningMode;
+
 import java.util.Scanner;
 
-public class EncryptionMode implements RunningMode {
+public class DecryptionMode implements RunningMode {
     private static final String ENTER_KEY = "Введіть криптоключ (1, 2 або 3): ";
     private static final String WRONG_KEY = "Неправильний криптоключ. Використовується криптоключ 1.";
-    private static final String ENTER_PATH = "Введіть шлях до файлу для шифрування: ";
-    private static final String ENCRYPTION_SUCCEED = "Текст зашифровано та збережено у файлі ";
-    private EncryptionAlgorithm encryptionAlgorithm;
+    private static final String ENTER_PATH = "Введіть шлях до файлу з зашифрованим текстом: ";
+    private static final String DECRYPTION_SUCCEED = "Введіть шлях до файлу з зашифрованим текстом для дешифрування: ";
+    private DecryptionAlgorithm decryptionAlgorithm;
 
-    public EncryptionMode() {
-        encryptionAlgorithm = new EncryptionAlgorithm();
+    public DecryptionMode() {
+        decryptionAlgorithm = new DecryptionAlgorithm();
     }
+
     @Override
     public void execute() {
-        Scanner scanner = new Scanner(System.in);
+        Scanner filePathFromUser = new Scanner(System.in);
         System.out.print(ENTER_PATH);
-        String inputFilePath = scanner.nextLine();
-
-        FileReadingLogic fileReadingLogic = new FileReadingLogic();
-        String plainText = fileReadingLogic.readFile(inputFilePath);
+        String inputFilePath = filePathFromUser.nextLine();
 
         CryptoKey cryptoKey = selectCryptoKey();
 
-        String encryptedText = encryptionAlgorithm.encrypt(plainText, cryptoKey);
+        FileReadingLogic fileReadingLogic = new FileReadingLogic();
+        String encryptedText = fileReadingLogic.readFile(inputFilePath);
 
+        String decryptedText = decryptionAlgorithm.decrypt(encryptedText, cryptoKey);
 
-        fileReadingLogic.writeFile(inputFilePath, encryptedText);
-        System.out.println(ENCRYPTION_SUCCEED + inputFilePath);
+        fileReadingLogic.writeFile(inputFilePath, decryptedText);
+        System.out.println(DECRYPTION_SUCCEED + inputFilePath);
     }
-    private CryptoKey selectCryptoKey() {
+
+    protected CryptoKey selectCryptoKey() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print(ENTER_KEY);
         int key = scanner.nextInt();
-        scanner.nextLine();
+        scanner.nextLine(); //
 
         switch (key) {
             case 1 -> {
@@ -58,5 +60,4 @@ public class EncryptionMode implements RunningMode {
             }
         }
     }
-
 }
